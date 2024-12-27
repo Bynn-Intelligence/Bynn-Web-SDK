@@ -42,7 +42,7 @@ Tip: The more data you send, the more comprehensive intelligence we can deliver,
 ```javascript
 
 const bynn = Bynn({
-  apiKey: 'your_api_key',
+  apiKey: 'your_PUBLIC_api_key',
   parentId: 'verification-form',
   fields: [
     { name: 'first_name', visible: true },
@@ -65,7 +65,7 @@ You can pass all data hidden from the user like this
 ```javascript
 
 const bynn = Bynn({
-  apiKey: 'your_api_key',
+  apiKey: 'your_PUBLIC_api_key',
   parentId: 'verification-form',
   fields: [
     { name: 'first_name', visible: false, value:'John'  },
@@ -111,7 +111,7 @@ Available field names:
 Example with all options:
 ```javascript
 const bynn = Bynn({
-  apiKey: 'your_api_key',
+  apiKey: 'your_PUBLIC_api_key',
   parentId: 'verification-form',
   fields: [
     { 
