@@ -1,5 +1,5 @@
 {
-  "name": "@bynn/verify",
+  "name": "@bynn-intelligence/verify",
   "version": "1.0.0",
   "description": "JavaScript SDK for Bynn.com ID verification service",
   "type": "module",
@@ -22,18 +22,15 @@
     "identity",
     "verification",
     "kyc",
-    "id-verification",
-    "idv",
-    "id",
-    "passport",
-    "scanner"
+    "id-verification"
   ],
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-typescript": "11.0.0",
     "rollup": "3.20.2",
     "tslib": "2.5.0",
     "typescript": "5.0.3",
-    "vite": "^4.0.0"
+    "vite": "4.0.0"
   }
 }

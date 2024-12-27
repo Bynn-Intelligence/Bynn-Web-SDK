@@ -16,12 +16,13 @@ export async function createSession(
         'x-origin': 'js-sdk'
       },
       body: JSON.stringify({
-        first_name: params.person.first_name,
-        last_name: params.person.last_name,
+        first_name: params.person.first_name || params.person.givenName,
+        last_name: params.person.last_name || params.person.lastName,
         unique_id: params.person.unique_id,
         phone_number: params.person.phone_number,
         email_address: params.person.email_address,
-        i18n: i18n
+        i18n: i18n,
+        vendor_data: params.vendorData
       })
     });
 

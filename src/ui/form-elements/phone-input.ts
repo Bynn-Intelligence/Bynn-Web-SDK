@@ -4,15 +4,13 @@ import { STYLES } from '../../constants';
 
 export function createPhoneInput(form: HTMLFormElement, name: string, placeholder: string): void {
   const wrapper = createElement('div', STYLES.inputWrapper);
-  wrapper.style.display = 'flex';
-  wrapper.style.gap = '0.5rem';
+  wrapper.setAttribute('style', 'display: flex; gap: 0.5rem;');
 
   // Country code select
-  const select = createElement('select', STYLES.input, {
-    name: `${name}_country`,
-    required: true,
-    style: 'width: 180px; flex-shrink: 0;'
-  });
+  const select = createElement('select', STYLES.input);
+  select.setAttribute('style', 'width: 180px; flex-shrink: 0;');
+  select.name = `${name}_country`;
+  select.required = true;
 
   // Add countries to select
   countries.forEach(country => {
@@ -30,15 +28,14 @@ export function createPhoneInput(form: HTMLFormElement, name: string, placeholde
   });
 
   // Phone number input
-  const input = createElement('input', STYLES.input, {
-    type: 'tel',
-    name,
-    required: true,
-    placeholder,
-    pattern: '[0-9]{6,14}',
-    title: 'Please enter a valid phone number',
-    style: 'flex: 1;'
-  });
+  const input = createElement('input', STYLES.input);
+  input.setAttribute('style', 'flex: 1;');
+  input.type = 'tel';
+  input.name = name;
+  input.required = true;
+  input.placeholder = placeholder;
+  input.pattern = '[0-9]{6,14}';
+  input.title = 'Please enter a valid phone number';
 
   wrapper.append(select, input);
   form.appendChild(wrapper);

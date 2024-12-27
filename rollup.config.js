@@ -1,4 +1,5 @@
 import typescript from '@rollup/plugin-typescript';
+import json from '@rollup/plugin-json';
 
 export default {
   input: 'src/core.ts',
@@ -14,6 +15,9 @@ export default {
     }
   ],
   plugins: [
-    typescript()
+    json(),
+    typescript({
+      tsconfig: './tsconfig.json'
+    })
   ]
 };
