@@ -1,0 +1,27 @@
+:root {
+  /* Primary colors */
+  --bynn-primary: #6366F1;
+  --bynn-primary-hover: #4F46E5;
+  --bynn-primary-disabled: #C7D2FE;
+  --bynn-primary-light: #EEF2FF;
+  
+  /* Background colors */
+  --bynn-bg-white: #FFFFFF;
+  --bynn-bg-input: #F9FAFB;
+  
+  /* Neutral colors */
+  --bynn-neutral-50: #F9FAFB;
+  --bynn-neutral-100: #F3F4F6;
+  --bynn-neutral-200: #E5E7EB;
+  --bynn-neutral-300: #D1D5DB;
+  --bynn-neutral-600: #4B5563;
+  --bynn-neutral-800: #1F2937;
+}
+
+/* Reset styles for Bynn elements */
+[class^="bynn-"] {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}

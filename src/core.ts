@@ -1,9 +1,12 @@
-import { BynnConfig, BynnParams, FormOptions, BynnSDK, FormField } from './types';
+import { BynnConfig, BynnParams, FormOptions, BynnSDK } from './types';
 import { DEFAULT_HOST } from './constants';
 import { createSession } from './api/session';
 import { createVerificationForm } from './ui/form';
 import { showVerificationModal } from './ui/verification-modal';
 import { showErrorModal } from './ui/alerts/error-modal';
+
+// Import styles
+import './styles';
 
 export const Bynn = (config: BynnConfig): BynnSDK => {
   const {
