@@ -58,8 +58,9 @@ export default [
       {
         file: 'dist/bynn.js',
         format: 'umd',
-        name: 'Bynn',
+        name: 'createBynn',
         sourcemap: true,
+        exports: 'named',
         globals: {
           window: 'window',
           document: 'document'
@@ -68,8 +69,9 @@ export default [
       {
         file: 'dist/bynn.min.js',
         format: 'umd',
-        name: 'Bynn',
+        name: 'createBynn',
         sourcemap: true,
+        exports: 'named',
         globals: {
           window: 'window',
           document: 'document'

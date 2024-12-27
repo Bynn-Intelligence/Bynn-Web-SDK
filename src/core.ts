@@ -8,7 +8,7 @@ import { showErrorModal } from './ui/alerts/error-modal';
 // Import styles
 import './styles';
 
-function Bynn(config: BynnConfig): BynnSDK {
+function createBynn(config: BynnConfig): BynnSDK {
   const {
     host = DEFAULT_HOST,
     apiKey,
@@ -86,4 +86,6 @@ function Bynn(config: BynnConfig): BynnSDK {
   };
 }
 
-export default Bynn;
+// Export as both named and default export
+export { createBynn as Bynn };
+export default createBynn;
