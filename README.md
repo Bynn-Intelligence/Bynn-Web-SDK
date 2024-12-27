@@ -56,6 +56,36 @@ const bynn = Bynn({
 bynn.mount();
 ```
 
+![Example](examples/img/form1.png)
+
+
+## Example with only button
+You can pass all data hidden from the user like this
+
+```javascript
+
+const bynn = Bynn({
+  apiKey: 'your_api_key',
+  parentId: 'verification-form',
+  fields: [
+    { name: 'first_name', visible: false, value:'John'  },
+    { name: 'last_name', visible: false, value:'Doe'  },
+    { name: 'email_address', visible: false, value:'john@doe.com' },
+    { name: 'phone_number', visible: false, value:'+1234567890'  },
+    { name: 'unique_id', visible: false, value:'550e8400-e29b-41d4-a716-446655440000' },
+  ]
+});
+
+bynn.mount();
+```
+
+This will generate only the verification button.
+
+![Example](examples/img/form3.png)
+
+
+**Pro Tip:** If you want to create your own verification button and modal we suggest using our session API instead of the web sdk. Read more about the session API at [docs.bynn.com](https://docs.bynn.com) 
+
 ## Configuration Options
 
 ### Fields Configuration
