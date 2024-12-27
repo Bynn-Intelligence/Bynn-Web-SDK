@@ -2,16 +2,44 @@
 
 A JavaScript SDK for integrating Bynn's identity verification service into web applications.
 
+
 ## Installation
 
+Include as a script tag:
+
+```html
+<script src="https://static.bynn.com/sdk/js/1.1/bynn.min.js"></script>
+```
+
+or install it via a package manager
+
 ```bash
-npm install @bynn-intelligence/verify
+npm install @bynn-intelligence/websdk
 ```
 
 ## Basic Usage
 
 ```javascript
-import { Bynn } from '@bynn-intelligence/verify';
+   // CommonJS
+  const Bynn = require('@bynn-intelligence/websdk');
+
+  // ES6 style import
+  import { Bynn } from '@bynn-intelligence/websdk';
+```
+
+Bynn SDK requires one parent element in HTML:
+
+```html
+<div id="bynn-verify-form"></div>
+```
+
+To initialize the library, you will need to provide your API Key and parentId.
+- Fields are optional, but including them enhances the verification process.
+- ‘unique_id’ is highly recommended if you conduct more than a few verifications per month. It enables automatic matching of applicants in your system, streamlining the process.
+
+Tip: The more data you send, the more comprehensive intelligence we can deliver, ensuring higher accuracy and better insights for your verifications.
+
+```javascript
 
 const bynn = Bynn({
   apiKey: 'your_api_key',
@@ -19,8 +47,9 @@ const bynn = Bynn({
   fields: [
     { name: 'first_name', visible: true },
     { name: 'last_name', visible: true },
-    { name: 'email_address', visible: true },
-    { name: 'phone_number', visible: true }
+    { name: 'email_address', visible: false, value:'john@doe.com' },
+    { name: 'phone_number', visible: true },
+    { name: 'unique_id', visible: false, value:'550e8400-e29b-41d4-a716-446655440000' },
   ]
 });
 
