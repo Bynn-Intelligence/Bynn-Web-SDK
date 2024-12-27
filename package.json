@@ -1,0 +1,39 @@
+{
+  "name": "@bynn/verify",
+  "version": "1.0.0",
+  "description": "JavaScript SDK for Bynn.com ID verification service",
+  "type": "module",
+  "main": "dist/bynn.js",
+  "module": "dist/bynn.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "vite",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "identity",
+    "verification",
+    "kyc",
+    "id-verification",
+    "idv",
+    "id",
+    "passport",
+    "scanner"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "11.0.0",
+    "rollup": "3.20.2",
+    "tslib": "2.5.0",
+    "typescript": "5.0.3",
+    "vite": "^4.0.0"
+  }
+}
