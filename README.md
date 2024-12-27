@@ -8,7 +8,7 @@ To get started with this SDK, you’ll need a Bynn account. Don’t have one yet
 
 Start verifying smarter, and trust faster with Bynn!
 
-[Create a free account](https://bynn.com)
+[Create an account and try for free](https://bynn.com)
 
 ## Installation
 
