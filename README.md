@@ -2,6 +2,13 @@
 
 A JavaScript SDK for integrating Bynn's identity verification service into web applications.
 
+The Bynn Web SDK enables seamless integration of advanced verification capabilities directly into your web applications. With this SDK, you can verify passports, ID cards, and other essential documents effortlessly.
+
+To get started with this SDK, you’ll need a Bynn account. Don’t have one yet? No problem! Create your free account today at [bynn.com](https://bynn.com) and unlock access to cutting-edge verification tools.
+
+Start verifying smarter, and trust faster with Bynn!
+
+[Create a free account](https://bynn.com)
 
 ## Installation
 
