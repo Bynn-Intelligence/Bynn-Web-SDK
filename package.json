@@ -1,10 +1,11 @@
 {
   "name": "@bynn-intelligence/verify",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "JavaScript SDK for Bynn.com ID verification service",
   "type": "module",
   "main": "dist/bynn.js",
   "module": "dist/bynn.esm.js",
+  "browser": "dist/bynn.min.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -22,12 +23,20 @@
     "identity",
     "verification",
     "kyc",
-    "id-verification"
+    "id-verification",
+    "idv",
+    "passport",
+    "id-card",
+    "dl",
+    "drivers license",
+    "scan",
+    "extract"
   ],
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-typescript": "11.0.0",
+    "@rollup/plugin-terser": "0.4.0",
     "rollup": "3.20.2",
     "tslib": "2.5.0",
     "typescript": "5.0.3",

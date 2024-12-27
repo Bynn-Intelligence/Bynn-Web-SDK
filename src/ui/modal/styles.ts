@@ -3,16 +3,16 @@ import { MODAL_CONFIG } from './config';
 export const MODAL_STYLES = {
   overlay: {
     position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    top: '0',
+    left: '0',
+    right: '0',
+    bottom: '0',
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem',
-    zIndex: MODAL_CONFIG.zIndex.overlay,
+    zIndex: MODAL_CONFIG.zIndex.overlay.toString(),
     backdropFilter: 'blur(8px)'
   },
   container: {
@@ -46,6 +46,6 @@ export const MODAL_STYLES = {
     placeItems: 'center',
     transition: 'all 0.2s ease',
     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-    zIndex: MODAL_CONFIG.zIndex.closeButton
+    zIndex: MODAL_CONFIG.zIndex.closeButton.toString()
   }
 };
