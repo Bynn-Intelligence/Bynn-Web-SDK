@@ -29,15 +29,15 @@
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-json": "6.0.0",
+    "@rollup/plugin-typescript": "11.0.0", 
     "@rollup/plugin-terser": "0.4.0",
-    "@rollup/plugin-typescript": "11.0.0",
+    "rollup": "3.20.2",
+    "rollup-plugin-postcss": "4.0.2",
+    "postcss": "^8.4.31",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
-    "postcss": "^8.4.31",
-    "rollup": "^3.29.5",
-    "rollup-plugin-postcss": "4.0.2",
     "tslib": "2.5.0",
     "typescript": "5.0.3",
-    "vite": "^4.5.5"
+    "vite": "4.0.0"
   }
 }

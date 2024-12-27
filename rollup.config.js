@@ -59,13 +59,21 @@ export default [
         file: 'dist/bynn.js',
         format: 'umd',
         name: 'Bynn',
-        sourcemap: true
+        sourcemap: true,
+        globals: {
+          window: 'window',
+          document: 'document'
+        }
       },
       {
         file: 'dist/bynn.min.js',
         format: 'umd',
         name: 'Bynn',
         sourcemap: true,
+        globals: {
+          window: 'window',
+          document: 'document'
+        },
         plugins: [terser()]
       }
     ],
