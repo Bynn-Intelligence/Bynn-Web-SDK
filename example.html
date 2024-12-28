@@ -3,14 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bynn Verify Example</title>
+        <title>Bynn WEB SDK Example</title>
     </head>
     <body>
+
+	<!-- Bynn Root Element -->
         <div id="bynn-verify-form"></div>
 
+	<!-- Bynn SDK Scripts -->
         <script src="https://static.bynn.com/sdk/js/1.2/bynn.min.js"></script>
+
+	<!-- Bynn Configuration -->
         <script>
-          // The SDK exports createBynn function on the window object
           const bynn = window.createBynn.default({
             apiKey: 'public_5FFtVVv5Hv6GjNZY2dt3M4a4',
             parentId: 'bynn-verify-form',
@@ -22,8 +26,8 @@
 					    { name: 'unique_id', visible: false, value:'550e8400-e29b-41d4-a716-446655440000' },
 					  ]
           });
-          
           bynn.mount();
         </script>
+	
     </body>
     </html>
