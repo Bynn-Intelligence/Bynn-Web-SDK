@@ -54,6 +54,10 @@ import { BynnConfig, BynnParams, FormOptions, BynnSDK } from './types';
             fields.forEach(field => {
               const value = formData.get(field.name)?.toString() || field.value || '';
               personData[field.name] = value;
+              if (field.name === 'phone_number') {
+                const countryCode = formData.get(`${field.name}_country`)?.toString() || '';
+                personData.phone_country = countryCode;
+              }
             });
 
             const response = await createSession(host, apiKey, {
