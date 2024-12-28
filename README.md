@@ -21,7 +21,7 @@ or
 
 ```html
 <script type="module">
-  import * as Bynn from 'https://static.bynn.com/sdk/js/1.2/bynn.esm.js';
+  import * as Bynn from 'https://static.bynn.com/sdk/js/1.2.1/bynn.esm.js';
 </script>
 ```
 
