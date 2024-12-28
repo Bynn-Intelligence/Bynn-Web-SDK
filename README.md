@@ -15,7 +15,7 @@ Start verifying smarter, and trust faster with Bynn!
 Include as a script tag:
 
 ```html
-<script src="https://static.bynn.com/sdk/js/1.2/bynn.min.js"></script>
+<script src="https://static.bynn.com/sdk/js/1.2.1/bynn.min.js"></script>
 ```
 or
 
