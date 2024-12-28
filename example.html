@@ -1,46 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bynn Verify Example</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/ui/styles/theme.css">
-    <link rel="stylesheet" href="/src/ui/styles/main.css">
-</head>
-<body>
-    <div id="bynn-verify-form"></div>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bynn Verify Example</title>
+    </head>
+    <body>
+        <div id="bynn-verify-form"></div>
 
-    <script type="module">
-        import { Bynn } from './src/core.ts';
-        
-        const bynn = Bynn({
+        <script src="dist/bynn.min.js"></script>
+        <script>
+          // The SDK exports createBynn function on the window object
+          const bynn = window.createBynn.default({
             apiKey: 'public_5FFtVVv5Hv6GjNZY2dt3M4a4',
             parentId: 'bynn-verify-form',
-            i18n: 'se-SV',
-            fields: [
-                { name: 'first_name', visible: true, value: 'John' },
-                { name: 'last_name', visible: true, value: 'Doe' },
-                { name: 'email_address', visible: true, label: 'Email' },
-                { name: 'phone_number', visible: true, label: 'Enter phone' },
-                { name: 'unique_id', visible: false, value: 'USER123' }
-            ],
-            onSession: (error, response) => {
-                if (error) {
-                    console.error('Verification error:', error);
-                }
-                if (response) {
-                    console.log('Verification response:', response);
-                }
-            }
-        });
-
-        bynn.mount({
-            submitBtnText: 'Start Verification',
-            loadingText: 'Starting verification...'
-        });
-    </script>
-</body>
-</html>
+						fields: [
+					    { name: 'first_name', visible: true },
+					    { name: 'last_name', visible: true },
+					    { name: 'email_address', visible: false, value:'john@doe.com' },
+					    { name: 'phone_number', visible: true },
+					    { name: 'unique_id', visible: false, value:'550e8400-e29b-41d4-a716-446655440000' },
+					  ]
+          });
+          
+          bynn.mount();
+        </script>
+    </body>
+    </html>

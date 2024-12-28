@@ -1,4 +1,4 @@
-export const DEFAULT_HOST = 'https://886e1bcb02fc.ngrok.app/api';
+export const DEFAULT_HOST = 'https://api.bynn.com';
 
 export const DEFAULT_TEXT = {
   loadingText: 'Loading...',

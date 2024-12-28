@@ -1,46 +1,54 @@
 .bynn-form {
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto;
-  padding: 2.5rem;
-  background: var(--bynn-bg-white);
-  border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-}
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      background: var(--bynn-bg-white);
+      border-radius: 16px;
+      box-shadow: none;
+    }
 
-.bynn-input-wrapper {
-  margin-bottom: 1.5rem;
-}
+    .bynn-input-wrapper {
+      margin-bottom: 1.5rem;
+    }
 
-.bynn-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background: var(--bynn-bg-input);
-  border: 1px solid var(--bynn-neutral-200);
-  border-radius: 8px;
-  font-size: 0.9375rem;
-  color: var(--bynn-neutral-800);
-  transition: all 0.2s ease;
-}
+		.bynn-description{
+			font-size: 11px;
+			margin-top: 10px;
+		}
 
-.bynn-input:focus {
-  outline: none;
-  border-color: var(--bynn-primary);
-  box-shadow: 0 0 0 4px var(--bynn-primary-light);
-}
 
-.bynn-submit {
-  width: 100%;
-  padding: 0.875rem;
-  background: var(--bynn-primary);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
 
-.bynn-submit:hover {
-  background: var(--bynn-primary-hover);
-}
+    .bynn-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bynn-bg-input);
+      border: 1px solid var(--bynn-neutral-200);
+      border-radius: 8px;
+      font-size: 0.9375rem;
+      color: var(--bynn-neutral-800);
+      transition: all 0.2s ease;
+    }
+
+    .bynn-input:focus {
+      outline: none;
+      border-color: var(--bynn-primary);
+      box-shadow: 0 0 0 4px var(--bynn-primary-light);
+    }
+
+    .bynn-submit {
+      width: 100%;
+      padding: 0.875rem;
+      background: var(--bynn-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+			font-size: 13.33px;
+    }
+
+    .bynn-submit:hover {
+      background: var(--bynn-primary-hover);
+    }

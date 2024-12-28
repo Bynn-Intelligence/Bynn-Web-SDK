@@ -1,240 +1,240 @@
 /* Base styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.5;
-    color: var(--neutral-800);
-    background: var(--neutral-50);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-/* Form styles */
-.bynn-form {
-    width: 100%;
-    max-width: 440px;
-    margin: 0 auto;
-    padding: 2.5rem;
-    background: var(--bg-white);
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
-.bynn-input-wrapper {
-    margin-bottom: 1.5rem;
-}
-
-.bynn-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background: var(--bg-input);
-    border: 1px solid var(--neutral-200);
-    border-radius: 8px;
-    font-size: 0.9375rem;
-    font-family: inherit;
-    color: var(--neutral-800);
-    transition: all 0.2s ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.bynn-input:hover {
-    border-color: var(--neutral-300);
-}
-
-.bynn-input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px var(--primary-light);
-    background: var(--bg-white);
-}
-
-.bynn-input::placeholder {
-    color: var(--neutral-500);
-}
-
-/* Select specific styles */
-select.bynn-input {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 16px;
-    padding-right: 2.5rem;
-}
-
-/* Submit button */
-.bynn-submit {
-    width: 100%;
-    padding: 0.875rem;
-    margin-top: 0.5rem;
-    background: var(--bg-button);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9375rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.bynn-submit:hover {
-    background: var(--bg-button-hover);
-    transform: translateY(-1px);
-}
-
-.bynn-submit:active {
-    transform: translateY(0);
-}
-
-.bynn-submit:disabled {
-    background: var(--primary-disabled);
-    cursor: not-allowed;
-    transform: none;
-}
-
-.bynn-description {
-    margin-top: 1.5rem;
-    text-align: center;
-    color: var(--neutral-600);
-    font-size: 0.8125rem;
-}
-
-.bynn-description a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.bynn-description a:hover {
-    color: var(--primary);
-}
-
-/* Modal styles */
-.bynn-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    z-index: 1000;
-    backdrop-filter: blur(8px);
-}
-
-.bynn-modal-container {
-    position: relative;
-    width: 95%;
-    max-width: 960px;
-    max-height: 90vh;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bynn-modal-content {
-    height: 100%;
-    padding: 1.5rem;
-    overflow: hidden;
-}
-
-.bynn-modal-close {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    width: 32px;
-    height: 32px;
-    background: white;
-    border: none;
-    border-radius: 50%;
-    color: var(--neutral-600);
-    font-size: 1.25rem;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
-}
-
-.bynn-modal-close:hover {
-    background: var(--neutral-100);
-    color: var(--neutral-800);
-    transform: scale(1.1);
-}
-
-.bynn-iframe {
-    width: 100%;
-    height: 80vh;
-    border: none;
-    border-radius: 8px;
-    background: var(--neutral-50);
-}
-
-@keyframes modalEnter {
-    from {
-        opacity: 0;
-        transform: scale(0.96);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
-    body {
-        padding: 1rem;
-    }
-
-    .bynn-form {
-        padding: 1.5rem;
-    }
-
-    .bynn-modal-overlay {
+    * {
+        box-sizing: border-box;
+        margin: 0;
         padding: 0;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.5;
+        color: var(--neutral-800);
+        background: var(--neutral-50);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    /* Form styles */
+    .bynn-form {
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
+        padding: 2.5rem;
+        background: var(--bg-white);
+        border-radius: 16px;
+    }
+
+    .bynn-input-wrapper {
+        margin-bottom: 1.5rem;
+    }
+
+    .bynn-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: var(--bg-input);
+        border: 1px solid var(--neutral-200);
+        border-radius: 8px;
+        font-size: 0.9375rem;
+        font-family: inherit;
+        color: var(--neutral-800);
+        transition: all 0.2s ease;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .bynn-input:hover {
+        border-color: var(--neutral-300);
+    }
+
+    .bynn-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px var(--primary-light);
+        background: var(--bg-white);
+    }
+
+    .bynn-input::placeholder {
+        color: var(--neutral-500);
+    }
+
+    /* Select specific styles */
+    select.bynn-input {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 16px;
+        padding-right: 2.5rem;
+    }
+
+    /* Submit button */
+    .bynn-submit {
+        width: 100%;
+        padding: 0.875rem;
+        margin-top: 0.5rem;
+        background: var(--bg-button);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .bynn-submit:hover {
+        background: var(--bg-button-hover);
+        transform: translateY(-1px);
+    }
+
+    .bynn-submit:active {
+        transform: translateY(0);
+    }
+
+    .bynn-submit:disabled {
+        background: var(--primary-disabled);
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .bynn-description {
+        margin-top: 10px;
+        text-align: center;
+        color: var(--neutral-600);
+        font-size: 11px;
+        margin-bottom: 0;
+    }
+
+    .bynn-description a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .bynn-description a:hover {
+        color: var(--primary);
+    }
+
+    /* Modal styles */
+    .bynn-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        z-index: 1000;
+        backdrop-filter: blur(8px);
     }
 
     .bynn-modal-container {
-        width: 100%;
-        height: 100%;
-        max-height: 100vh;
-        border-radius: 0;
+        position: relative;
+        width: 95%;
+        max-width: 960px;
+        max-height: 90vh;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .bynn-modal-content {
-        height: 100vh;
-        padding: 0;
-    }
-
-    .bynn-iframe {
-        height: 100vh;
-        border-radius: 0;
+        height: 100%;
+        padding: 1.5rem;
+        overflow: hidden;
     }
 
     .bynn-modal-close {
-        top: 12px;
-        right: 12px;
-        background: var(--neutral-800);
-        color: white;
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        width: 32px;
+        height: 32px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        color: var(--neutral-600);
+        font-size: 1.25rem;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
     }
 
     .bynn-modal-close:hover {
-        background: var(--neutral-700);
-        color: white;
+        background: var(--neutral-100);
+        color: var(--neutral-800);
+        transform: scale(1.1);
     }
-}
+
+    .bynn-iframe {
+        width: 100%;
+        height: 80vh;
+        border: none;
+        border-radius: 8px;
+        background: var(--neutral-50);
+    }
+
+    @keyframes modalEnter {
+        from {
+            opacity: 0;
+            transform: scale(0.96);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+        body {
+            padding: 1rem;
+        }
+
+        .bynn-form {
+            padding: 1.5rem;
+        }
+
+        .bynn-modal-overlay {
+            padding: 0;
+        }
+
+        .bynn-modal-container {
+            width: 100%;
+            height: 100%;
+            max-height: 100vh;
+            border-radius: 0;
+        }
+
+        .bynn-modal-content {
+            height: 100vh;
+            padding: 0;
+        }
+
+        .bynn-iframe {
+            height: 100vh;
+            border-radius: 0;
+        }
+
+        .bynn-modal-close {
+            top: 12px;
+            right: 12px;
+            background: var(--neutral-800);
+            color: white;
+        }
+
+        .bynn-modal-close:hover {
+            background: var(--neutral-700);
+            color: white;
+        }
+    }
