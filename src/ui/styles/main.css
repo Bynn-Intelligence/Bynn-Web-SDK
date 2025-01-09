@@ -138,17 +138,32 @@
         position: relative;
         width: 95%;
         max-width: 960px;
-        max-height: 90vh;
-        background: white;
+        height: 90vh;
+        background: var(--bg-white);
         border-radius: 16px;
+        display: flex;
+        flex-direction: column;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        animation: modalEnter 200ms cubic-bezier(0.16, 1, 0.3, 1);
+        transition: width 200ms ease;
+
+    }
+
+    .bynn-iframe-container {
+        flex: 1;
+        overflow: auto;
+        border-radius: 8px;
+        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+        display: flex;          /* Added */
+        justify-content: center; /* Added for centering iframe when width < container */
     }
 
     .bynn-modal-content {
-        height: 100%;
+        flex: 1;
         padding: 1.5rem;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     .bynn-modal-close {
@@ -178,10 +193,11 @@
 
     .bynn-iframe {
         width: 100%;
-        height: 80vh;
+        height: 100%;
         border: none;
         border-radius: 8px;
-        background: var(--neutral-50);
+        background: var(--bg-input);
+        transition: width 200ms ease;
     }
 
     @keyframes modalEnter {
@@ -214,6 +230,7 @@
             height: 100%;
             max-height: 100vh;
             border-radius: 0;
+
         }
 
         .bynn-modal-content {

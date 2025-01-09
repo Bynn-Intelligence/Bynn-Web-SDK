@@ -41,7 +41,7 @@ import { BynnConfig, BynnParams, FormOptions, BynnSDK } from './types';
 
       const mount = async (options: FormOptions = {}) => {
         const form = await createVerificationForm(parentId, params, options, fields);
-        
+
         form.onsubmit = async (e: Event) => {
           e.preventDefault();
           const formData = new FormData(form);
@@ -60,19 +60,26 @@ import { BynnConfig, BynnParams, FormOptions, BynnSDK } from './types';
               }
             });
 
-            const response = await createSession(host, apiKey, {
-              person: personData
-            }, i18n);
-            
+            const response = await createSession(
+                host,
+                config.kycLevel, // Add this parameter
+                apiKey,
+                {
+                  person: personData,
+                  vendorData: formData.get('vendorData')?.toString()
+                },
+                i18n
+            );
+
             showVerificationModal(response.url);
-            
+
             if (onSession) {
               onSession(null, response);
             }
           } catch (error) {
             const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';
             showErrorModal(errorMessage);
-            
+
             if (onSession) {
               onSession(error as Error, null);
             }

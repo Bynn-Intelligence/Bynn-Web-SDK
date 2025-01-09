@@ -15,12 +15,13 @@ export interface Person {
     }
 
     export interface BynnConfig {
-      host?: string;
-      apiKey: string;
-      parentId: string;
-      i18n?: string;
-      fields?: FormField[];
-      onSession?: (error: Error | null, response: SessionResponse | null) => void;
+        host?: string;
+        apiKey: string;
+        kycLevel: string;
+        parentId: string;
+        i18n?: string;
+        fields?: FormField[];
+        onSession?: (error: Error | null, response: SessionResponse | null) => void;
     }
 
     export interface FormOptions {
