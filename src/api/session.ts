@@ -1,3 +1,4 @@
+// session.ts
 import { BynnParams, SessionResponse, ApiError } from '../types';
 import { handleApiError } from '../utils/error';
 
@@ -34,13 +35,20 @@ export async function createSession(
     });
 
     if (!response.ok) {
-      const errorData: ApiError = await response.json();
-      throw new Error(errorData.error.message);
+      const errorData = await response.json();
+      throw new Error(errorData.error?.message || 'Session creation failed');
     }
 
     const data = await response.json();
-    return { url: data.url };
+    console.log('Session response:', data);
+
+    return {
+      url: data.url,
+      sessionId: data.session_id
+    };
   } catch (error) {
-    throw handleApiError(error);
+    console.error('Session creation error:', error);
+    throw error;
   }
 }
+
