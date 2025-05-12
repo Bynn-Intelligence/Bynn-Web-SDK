@@ -1,5 +1,3 @@
-import { STYLES } from '../constants';
-
 export function createElement<K extends keyof HTMLElementTagNameMap>(
   tag: K,
   className?: string,

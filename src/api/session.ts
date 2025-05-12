@@ -1,6 +1,4 @@
-// session.ts
-import { BynnParams, SessionResponse, ApiError } from '../types';
-import { handleApiError } from '../utils/error';
+import { BynnParams, SessionResponse } from '../types';
 
 export async function createSession(
     host: string,

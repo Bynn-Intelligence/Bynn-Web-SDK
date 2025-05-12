@@ -1,11 +1,10 @@
-import { BynnParams, FormOptions, FormField } from '../types';
+import { FormOptions, FormField } from '../types';
     import { STYLES } from '../constants';
     import { createElement, getContainer } from '../utils/dom';
     import { addInputField, createSubmitButton, createPoweredByText } from './form-elements';
 
     export async function createVerificationForm(
       containerId: string,
-      params: BynnParams,
       options: FormOptions,
       fields: FormField[]
     ): Promise<HTMLFormElement> {

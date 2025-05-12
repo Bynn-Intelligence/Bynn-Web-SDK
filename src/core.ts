@@ -48,7 +48,7 @@ function createBynn(config: BynnConfig): BynnSDK {
   };
 
   const mount = async (options: FormOptions = {}) => {
-    const form = await createVerificationForm(parentId, params, options, fields);
+    const form = await createVerificationForm(parentId, options, fields);
 
     form.onsubmit = async (e: Event) => {
       e.preventDefault();
