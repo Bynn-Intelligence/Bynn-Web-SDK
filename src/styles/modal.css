@@ -1,4 +1,4 @@
-.bynn-modal-overlay {
+.data-bynn-sdk .bynn-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-.bynn-modal-container {
+.data-bynn-sdk .bynn-modal-container {
   position: relative;
   width: 95%;
   max-width: 960px;
@@ -22,10 +22,91 @@
   background: var(--bynn-bg-white);
   border-radius: 16px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0);
+  transition: width 200ms ease-in-out, height 200ms ease-in-out;
 }
 
-.bynn-modal-content {
+.data-bynn-sdk .bynn-modal-content {
+  flex: 1;
+  width: 100%;
   height: 100%;
   padding: 1.5rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-bynn-sdk .bynn-iframe-container {
+  flex: 1;
+  overflow: auto;
+  border-radius: 8px;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  justify-content: center;
+}
+
+.data-bynn-sdk .bynn-iframe-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+}
+
+.data-bynn-sdk .bynn-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .data-bynn-sdk .bynn-modal-overlay {
+    padding: 0;
+    background: #fff;
+    backdrop-filter: none;
+  }
+
+  .data-bynn-sdk .bynn-modal-container {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .data-bynn-sdk .bynn-modal-content {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .data-bynn-sdk .bynn-iframe-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .data-bynn-sdk .bynn-iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0;
+  }
 }
