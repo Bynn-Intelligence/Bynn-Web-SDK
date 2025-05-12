@@ -18,11 +18,12 @@ function createBynn(config: BynnConfig): BynnSDK {
     onSession,
     i18n,
     kycLevel,
-    onTimeout,
     onCancel,
     onComplete,
     onError,
-    onStart
+    onStart,
+    onReject,
+    onSuccess
   } = config;
 
   let params: BynnParams = {
@@ -81,18 +82,19 @@ function createBynn(config: BynnConfig): BynnSDK {
         // Create a configuration object with all the callbacks
         const modalConfig = {
           ...config,
-          onTimeout,
           onCancel,
           onComplete,
           onError,
-          onStart
+          onStart,
+          onReject,
+          onSuccess
         };
 
         // Show modal with all necessary callbacks
-        showVerificationModal(response.url, response.session_id, modalConfig);
+        showVerificationModal(response.url, response.sessionId, modalConfig);
 
         if (onSession) {
-          onSession(null, response, response.session_id);
+          onSession(null, response, response.sessionId);
         }
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';

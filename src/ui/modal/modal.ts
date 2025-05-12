@@ -1,7 +1,10 @@
 import '../../styles/modal.css';
 import { createElement } from '../../utils/dom';
 
-export function createModal(): HTMLDivElement {
+export function createModal(): {
+  modalElement: HTMLDivElement;
+  closeModal: () => void;
+} {
   // Create overlay
   const overlay = createElement('div', 'bynn-modal-overlay');
 
@@ -11,20 +14,36 @@ export function createModal(): HTMLDivElement {
   // Create content wrapper
   const content = createElement('div', 'bynn-modal-content');
 
-  // Create close button
-  const closeButton = createElement('button', 'bynn-modal-close', {
-    innerHTML: '×',
-    onclick: () => {
-      overlay.remove();
-      document.body.style.overflow = 'auto';
-    }
-  });
-
   // Prevent body scroll when modal is open
   document.body.style.overflow = 'hidden';
 
-  container.append(closeButton, content);
+  overlay.style.cursor = 'pointer';
+
+  container.style.cursor = 'default';
+
+  container.append(content);
   overlay.appendChild(container);
 
-  return overlay;
+  let clickHandler: ((event: MouseEvent) => void) | null = null;
+
+  const closeModal = () => {
+    if (clickHandler) {
+      overlay.removeEventListener('click', clickHandler);
+      clickHandler = null;
+    }
+
+    overlay.remove();
+
+    document.body.style.overflow = '';
+  };
+
+  clickHandler = (event: MouseEvent) => {
+    if (event.target === overlay) {
+      closeModal();
+    }
+  };
+
+  overlay.addEventListener('click', clickHandler);
+
+  return { modalElement: overlay, closeModal };
 }

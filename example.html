@@ -37,9 +37,6 @@
                 console.log('Verification onSession id:', response.sessionId);
             }
         },
-        onTimeout: (sessionId) => {
-            console.log('Verification timed out, session id:', sessionId);
-        },
         onCancel: () => {
             console.log('Verification canceled');
         },
@@ -51,9 +48,16 @@
         },
         onStart: (sessionId) => {
             console.log('Verification started, session id:', sessionId);
+        },
+        onReject: (sessionId) => {
+            console.log('Verification rejected, session id:', sessionId);
+        },
+        onSuccess: (sessionId) => {
+            console.log('Verification successful, session id:', sessionId);
+        },
+        onClose: () => {
+            console.log('Verification closed');
         }
-
-
     });
 
     bynn.mount({

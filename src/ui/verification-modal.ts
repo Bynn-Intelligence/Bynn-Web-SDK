@@ -3,14 +3,30 @@ import { createModal } from './modal/modal';
 import { createElement } from '../utils/dom';
 import { applyStyles } from '../utils/styles';
 
+const DEFAULT_TIMEOUT = 10;
+
 export function showVerificationModal(
     url: string,
-    session_id: string,
+    sessionId: string,
     config: BynnConfig,
     iframeOptions: IframeOptions = {}
 ): void {
-  const modal = createModal();
-  const content = modal.querySelector('.bynn-modal-content');
+  const { modalElement, closeModal } = createModal();
+  const content = modalElement.querySelector('.bynn-modal-content');
+
+  const timeoutDuration = config.startTimeoutSeconds || DEFAULT_TIMEOUT;
+  let startTimeoutId: number | null = window.setTimeout(() => {
+    console.error(
+      `Verification didn't start within ${timeoutDuration} seconds`
+    );
+    if (config.onError) {
+      config.onError(
+        sessionId,
+        `Verification process did not start within ${timeoutDuration} seconds`
+      );
+    }
+    closeModal();
+  }, timeoutDuration * 1000);
 
   if (content && content instanceof HTMLElement) {
     applyStyles(content, {
@@ -37,6 +53,14 @@ export function showVerificationModal(
         }
 
         if (!event.data || typeof event.data !== 'object') return;
+
+        if (event.data.type === 'close') {
+          if (config.onClose) {
+            config.onClose();
+          }
+          closeModal();
+          return;
+        }
 
         // Check if we're on mobile
         const isMobile = window.innerWidth <= 640;
@@ -87,32 +111,42 @@ export function showVerificationModal(
           console.log('Processing verification status:', data.status);
 
           switch (data.status) {
-            case 'timeout':
-              if (config.onTimeout) {
-                config.onTimeout(session_id);
-              }
-              modal.remove();
-              break;
             case 'cancel':
               if (config.onCancel) {
-                config.onCancel(session_id);
+                config.onCancel(sessionId);
               }
-              modal.remove();
+              closeModal();
               break;
-            case 'complete':
+            case 'completed':
               if (config.onComplete) {
-                config.onComplete(session_id);
+                config.onComplete(sessionId);
               }
-              modal.remove();
+              closeModal();
               break;
             case 'error':
               if (config.onError) {
-                config.onError(session_id, data.error || 'Unknown error');
+                config.onError(sessionId, data.error || 'Unknown error');
               }
               break;
+            case 'rejected':
+              if (config.onReject) {
+                config.onReject(sessionId);
+              }
+              closeModal();
+              break;
+            case 'successful':
+              if (config.onSuccess) {
+                config.onSuccess(sessionId);
+              }
+              closeModal();
+              break;
             case 'start':
+              if (startTimeoutId !== null) {
+                window.clearTimeout(startTimeoutId);
+                startTimeoutId = null;
+              }
               if (config.onStart) {
-                config.onStart(data.sessionId || session_id);
+                config.onStart(data.sessionId || sessionId);
               }
               break;
           }
@@ -135,30 +169,19 @@ export function showVerificationModal(
     // Clean up listener when iframe is removed
     const cleanup = () => {
       window.removeEventListener('message', handleMessage);
+      if (startTimeoutId !== null) {
+        window.clearTimeout(startTimeoutId);
+        startTimeoutId = null;
+      }
     };
 
     iframe.addEventListener('remove', cleanup);
     window.addEventListener('unload', cleanup);
-
-    // Handle modal close button
-    const closeButton = modal.querySelector('.bynn-modal-close');
-    if (closeButton) {
-      const originalOnClick = closeButton.onclick;
-      closeButton.onclick = (e: MouseEvent) => {
-        if (typeof originalOnClick === 'function') {
-          originalOnClick.call(closeButton, e);
-        }
-        if (config.onCancel) {
-          config.onCancel(session_id);
-        }
-        cleanup();
-      };
-    }
 
     // Add iframe to wrapper, then wrapper to content
     wrapper.appendChild(iframe);
     content.appendChild(wrapper);
   }
 
-  document.body.appendChild(modal);
+  document.body.appendChild(modalElement);
 }
