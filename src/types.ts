@@ -53,13 +53,6 @@ export interface SessionResponse {
     sessionId: string;
 }
 
-export interface ApiError {
-    error: {
-        message: string;
-        code?: string;
-    };
-}
-
 
 export interface BynnSDK {
     params: BynnParams;
