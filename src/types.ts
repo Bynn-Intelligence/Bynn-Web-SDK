@@ -60,11 +60,6 @@ export interface ApiError {
     };
 }
 
-export interface IframeOptions {
-    width?: string;
-    height?: string;
-    className?: string;
-}
 
 export interface BynnSDK {
     params: BynnParams;

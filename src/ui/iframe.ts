@@ -1,7 +1,6 @@
-import { IframeOptions } from '../types';
 import { createElement } from '../utils/dom';
 
-export function createVerificationIframe(url: string, options: IframeOptions = {}): HTMLIFrameElement {
+export function createVerificationIframe(url: string, options ): HTMLIFrameElement {
   const {
     width = '100%',
     height = '600px',

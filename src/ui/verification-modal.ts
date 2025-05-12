@@ -1,4 +1,4 @@
-import { IframeOptions, BynnConfig, VerificationMessage } from '../types';
+import { BynnConfig, VerificationMessage } from '../types';
 import { createModal } from './modal/modal';
 import { createElement } from '../utils/dom';
 import { applyStyles } from '../utils/styles';
@@ -9,7 +9,6 @@ export function showVerificationModal(
     url: string,
     sessionId: string,
     config: BynnConfig,
-    iframeOptions: IframeOptions = {}
 ): void {
   const { modalElement, closeModal } = createModal();
   const content = modalElement.querySelector('.bynn-modal-content');
