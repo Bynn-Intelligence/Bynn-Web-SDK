@@ -167,6 +167,24 @@ const bynn = Bynn({
       return;
     }
     console.log('Verification started:', response);
+  },
+  onStart: (sessionId) => {
+    console.log('Verification started:', sessionId);
+  },
+  onComplete: (sessionId) => {
+    console.log('Verification completed:', sessionId);
+  },
+  onError: (sessionId, error) => {
+    console.error('Verification error:', error);
+  },
+  onReject: (sessionId) => {
+    console.log('Verification rejected:', sessionId);
+  },
+  onSuccess: (sessionId) => {
+    console.log('Verification successful:', sessionId);
+  },
+  onClose: () => {
+    console.log('Verification closed');
   }
 });
 ```
@@ -209,7 +227,6 @@ You can also style specific elements using these CSS classes:
 - `.bynn-modal-overlay` - Verification modal overlay
 - `.bynn-modal-container` - Modal container
 - `.bynn-modal-content` - Modal content
-- `.bynn-modal-close` - Modal close button
 
 Example custom styles:
 
@@ -252,7 +269,14 @@ const bynn = Bynn({
 | `parentId` | string | Yes | ID of container element |
 | `fields` | Field[] | No | Form field configuration |
 | `i18n` | string | No | Language code |
+| `startTimeoutSeconds` | number   | No | Timeout in seconds to wait for verification start (default 10 seconds) |
 | `onSession` | function | No | Session callback |
+| `onStart` | function | No | Start callback                                                         |
+| `onComplete` | function | No | Complete callback                                                      |
+| `onError` | function | No | Error callback                                                         |
+| `onReject` | function | No | Reject callback                                                        |
+| `onSuccess` | function | No | Success callback                                                       |
+| `onClose` | function | No | Close callback                                                         |
 
 ### Field Configuration
 

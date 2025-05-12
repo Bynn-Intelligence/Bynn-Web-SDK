@@ -23,11 +23,14 @@ export interface BynnConfig {
     i18n?: string;
     fields?: FormField[];
     onSession?: (error: Error | null, response: SessionResponse | null, sessionId?: string) => void;
-    onTimeout?: (sessionId: string) => void;
     onCancel?: (sessionId: string) => void;
     onComplete?: (sessionId: string) => void;
     onError?: (sessionId: string, error: string | Error) => void;
     onStart?: (sessionId: string) => void;
+    startTimeoutSeconds?: number;
+    onReject?: (sessionId: string) => void;
+    onSuccess?: (sessionId: string) => void;
+    onClose?: () => void;
 }
 
 export interface FormOptions {
@@ -57,11 +60,6 @@ export interface ApiError {
     };
 }
 
-export interface IframeOptions {
-    width?: string;
-    height?: string;
-    className?: string;
-}
 
 export interface BynnSDK {
     params: BynnParams;
@@ -69,7 +67,14 @@ export interface BynnSDK {
     mount: (options?: FormOptions) => void;
 }
 
-export type VerificationStatus = 'timeout' | 'cancel' | 'complete' | 'error' | 'start';
+export type VerificationStatus =
+  | 'timeout'
+  | 'cancel'
+  | 'completed'
+  | 'error'
+  | 'start'
+  | 'rejected'
+  | 'successful';
 
 export interface VerificationMessage {
     type: 'bynn-verification';

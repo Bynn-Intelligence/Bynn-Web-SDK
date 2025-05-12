@@ -3,9 +3,9 @@ import { createModal } from '../modal/modal';
 import { createElement } from '../../utils/dom';
 
 export function showErrorModal(message: string): void {
-  const modal = createModal();
-  const content = modal.querySelector('.bynn-modal-content');
-  
+  const { modalElement } = createModal();
+  const content = modalElement.querySelector('.bynn-modal-content');
+
   if (content) {
     const alert = createElement('div', 'bynn-error-alert');
     alert.setAttribute('style', `
@@ -24,6 +24,6 @@ export function showErrorModal(message: string): void {
     alert.appendChild(text);
     content.appendChild(alert);
   }
-  
-  document.body.appendChild(modal);
+
+  document.body.appendChild(modalElement);
 }

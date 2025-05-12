@@ -11,6 +11,7 @@
   padding: 2rem;
   z-index: 999999;
   backdrop-filter: blur(8px);
+  cursor: pointer;
 }
 
 .bynn-modal-container {
@@ -28,20 +29,3 @@
   padding: 1.5rem;
   overflow: hidden;
 }
-
-.bynn-modal-close {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 32px;
-  height: 32px;
-  background: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1000000;
-  color: #1F2937;
-}
-
-
-
