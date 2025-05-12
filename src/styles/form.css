@@ -1,55 +1,95 @@
-.bynn-form {
-      width: 100%;
-      max-width: 440px;
-      margin: 0 auto;
-      padding: 2.5rem;
-      background: var(--bynn-bg-white);
-      border-radius: 16px;
-      box-shadow: none;
-    }
+.data-bynn-sdk .bynn-form {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: var(--bynn-bg-white);
+  border-radius: 16px;
+  box-shadow: none;
+}
 
-    .bynn-input-wrapper {
-      margin-bottom: 1.5rem;
-    }
+.data-bynn-sdk .bynn-input-wrapper {
+  margin-bottom: 1.5rem;
+}
 
-		.bynn-description{
-			font-size: 11px;
-			margin-top: 10px;
-		}
+.data-bynn-sdk .bynn-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bynn-bg-input);
+  border: 1px solid var(--bynn-neutral-200);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  color: var(--bynn-neutral-800);
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
+.data-bynn-sdk .bynn-input:hover {
+  border-color: var(--bynn-neutral-300);
+}
 
+.data-bynn-sdk .bynn-input:focus {
+  outline: none;
+  border-color: var(--bynn-primary);
+  box-shadow: 0 0 0 4px var(--bynn-primary-light);
+  background: var(--bynn-bg-white);
+}
 
-    .bynn-input {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      background: var(--bynn-bg-input);
-      border: 1px solid var(--bynn-neutral-200);
-      border-radius: 8px;
-      font-size: 0.9375rem;
-      color: var(--bynn-neutral-800);
-      transition: all 0.2s ease;
-    }
+.data-bynn-sdk .bynn-input::placeholder {
+  color: var(--bynn-neutral-500);
+}
 
-    .bynn-input:focus {
-      outline: none;
-      border-color: var(--bynn-primary);
-      box-shadow: 0 0 0 4px var(--bynn-primary-light);
-    }
+/* Select specific styles */
+.data-bynn-sdk select.bynn-input {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+  padding-right: 2.5rem;
+}
 
-    .bynn-submit {
-      width: 100%;
-      padding: 0.875rem;
-      background: var(--bynn-primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-			font-size: 13.33px;
-    }
+.data-bynn-sdk .bynn-submit {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--bynn-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13.33px;
+}
 
-    .bynn-submit:hover {
-      background: var(--bynn-primary-hover);
-    }
+.data-bynn-sdk .bynn-submit:hover {
+  background: var(--bynn-primary-hover);
+}
 
+.data-bynn-sdk .bynn-submit:active {
+  transform: translateY(0);
+}
+
+.data-bynn-sdk .bynn-submit:disabled {
+  background: var(--bynn-primary-disabled);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.data-bynn-sdk .bynn-description {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--bynn-neutral-600);
+  font-size: 11px;
+  margin-bottom: 0;
+}
+
+.data-bynn-sdk .bynn-description a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.data-bynn-sdk .bynn-description a:hover {
+  color: var(--bynn-primary);
+}

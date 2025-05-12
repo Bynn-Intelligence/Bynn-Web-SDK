@@ -217,6 +217,8 @@ The SDK uses CSS custom properties (variables) for styling. Override these varia
 
 ### CSS Classes
 
+To avoid overriding SDK classes, it uses `.data-bynn-sdk` as a prefix.
+
 You can also style specific elements using these CSS classes:
 
 - `.bynn-form` - The form container
@@ -231,17 +233,17 @@ You can also style specific elements using these CSS classes:
 Example custom styles:
 
 ```css
-.bynn-form {
+.data-bynn-sdk .bynn-form {
   max-width: 500px;
   padding: 2rem;
 }
 
-.bynn-input {
+.data-bynn-sdk .bynn-input {
   border-radius: 8px;
   border: 2px solid var(--bynn-neutral-200);
 }
 
-.bynn-submit {
+.data-bynn-sdk .bynn-submit {
   background: var(--bynn-primary);
   font-weight: 600;
 }

@@ -10,6 +10,9 @@ import { BynnParams, FormOptions, FormField } from '../types';
       fields: FormField[]
     ): Promise<HTMLFormElement> {
       const container = getContainer(containerId);
+
+      container.classList.add('data-bynn-sdk');
+
       container.innerHTML = '';
       
       const form = createElement('form', STYLES.form);
