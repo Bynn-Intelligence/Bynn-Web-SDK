@@ -11,6 +11,7 @@
   padding: 2rem;
   z-index: 999999;
   backdrop-filter: blur(8px);
+  cursor: pointer;
 }
 
 .bynn-modal-container {

@@ -17,10 +17,6 @@ export function createModal(): {
   // Prevent body scroll when modal is open
   document.body.style.overflow = 'hidden';
 
-  overlay.style.cursor = 'pointer';
-
-  container.style.cursor = 'default';
-
   container.append(content);
   overlay.appendChild(container);
 
