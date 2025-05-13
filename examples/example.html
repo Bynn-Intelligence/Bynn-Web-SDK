@@ -10,13 +10,15 @@
     <div id="bynn-verify-form"></div>
 
     <!-- Bynn SDK Script -->
-    <script src="https://static.bynn.com/sdk/js/1.2.9/bynn.min.js"></script>
+    <script src="https://static.bynn.com/sdk/js/1.2.10/bynn.min.js"></script>
 
     <!-- Bynn Configuration -->
     <script>
         const bynn = window.createBynn.default({
-            apiKey: 'public_5FFtVVv5Hv6GjNZY2dt3M4a4',
+            apiKey: 'public_5FFtVVv5Hv6GjNZY2dt3M4a4', // Replace with your API key
             parentId: 'bynn-verify-form',
+            i18n: 'se-SV', // Replace with your language
+            kycLevel: 'G511113QN', // Replace with your KYC level
             fields: [
                 { name: 'first_name', visible: true },
                 { name: 'last_name', visible: true },
