@@ -12,8 +12,8 @@
       ],
       "scripts": {
             "build": "rollup -c",
-            "dev": "vite",
-            "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+            "dev": "npm run watch & vite",
+            "watch": "rollup -c -w",
             "prepublishOnly": "npm run build"
       },
       "publishConfig": {
