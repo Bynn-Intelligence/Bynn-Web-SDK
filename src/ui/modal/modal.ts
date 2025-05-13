@@ -5,6 +5,9 @@ export function createModal(): {
   modalElement: HTMLDivElement;
   closeModal: () => void;
 } {
+
+  const wrapper = createElement('div', 'data-bynn-sdk');
+
   // Create overlay
   const overlay = createElement('div', 'bynn-modal-overlay');
 
@@ -19,7 +22,7 @@ export function createModal(): {
 
   container.append(content);
   overlay.appendChild(container);
-
+  wrapper.appendChild(overlay);
   let clickHandler: ((event: MouseEvent) => void) | null = null;
 
   const closeModal = () => {
@@ -41,5 +44,5 @@ export function createModal(): {
 
   overlay.addEventListener('click', clickHandler);
 
-  return { modalElement: overlay, closeModal };
+  return { modalElement: wrapper, closeModal };
 }

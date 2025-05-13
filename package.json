@@ -1,6 +1,6 @@
 {
       "name": "@bynn-intelligence/websdk",
-      "version": "1.2.9",
+      "version": "1.2.10",
       "description": "JavaScript SDK for Bynn.com ID verification service",
       "type": "module",
       "main": "dist/bynn.js",
