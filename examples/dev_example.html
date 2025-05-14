@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bynn WEB SDK Local Example</title>
+	</head>
+	<body>
+		<!-- Bynn Root Element -->
+		<div id="bynn-verify-form"></div>
+
+		<!-- Bynn SDK Script -->
+		<script src="../dist/bynn.min.js"></script>
+
+		<!-- Bynn Configuration -->
+		<script>
+			const apiKey = "public_5FFtVVv5Hv6GjNZY2dt3M4a4"; // Replace with your actual API key
+			const kycLevel = "G511113QN"; // Replace with your actual KYC level
+
+			const bynn = window.createBynn.default({
+				apiKey: apiKey,
+				parentId: "bynn-verify-form",
+				parentId: parentId,
+				i18n: "se-SV", // Replace with your language
+				kycLevel: kycLevel,
+				fields: [
+					{ name: "first_name", visible: true },
+					{ name: "last_name", visible: true },
+					{ name: "email_address", visible: false, value: "john@doe.com" },
+					{ name: "phone_number", visible: true },
+					{
+						name: "unique_id",
+						visible: false,
+						value: "550e8400-e29b-41d4-a716-446655440000",
+					},
+				],
+				onSession: (error, response, sessionId) => {
+					if (error) {
+						console.error("Verification error:", error);
+					}
+					if (response) {
+						console.log("Verification onSession id:", response.sessionId);
+					}
+				},
+				onStart: (sessionId) => {
+					console.log("Verification started, session id:", sessionId);
+				},
+				onCancel: () => {
+					console.log("Verification canceled");
+				},
+				onComplete: (sessionId) => {
+					console.log("Verification completed, session id:", sessionId);
+				},
+				onError: (sessionId, error) => {
+					console.log(
+						"Verification error, session id, error:",
+						sessionId,
+						error
+					);
+				},
+				onReject: (sessionId) => {
+					console.log("Verification rejected, session id:", sessionId);
+				},
+				onSuccess: (sessionId) => {
+					console.log("Verification successful, session id:", sessionId);
+				},
+				onClose: () => {
+					console.log("Verification closed");
+				},
+			});
+
+			bynn.mount({
+				submitBtnText: "Start Verification",
+				loadingText: "Starting verification...",
+			});
+		</script>
+	</body>
+</html>
