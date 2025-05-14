@@ -47,7 +47,9 @@ Bynn SDK requires one parent element in HTML:
 <div id="bynn-verify-form"></div>
 ```
 
-To initialize the library, you will need to provide your API Key and parentId.
+To initialize the library, you will need to provide your API Key, KYC level and parentId.
+
+- You can find your public API key and KYC level in the Bynn dashboard in the [integration](https://dashboard.bynn.com/integration) section in the tab "Bynn.js (easy integration)". Just copy the integration code and paste it in the HTML file.
 - Fields are optional, but including them enhances the verification process.
 - ‘unique_id’ is highly recommended if you conduct more than a few verifications per month. It enables automatic matching of applicants in your system, streamlining the process.
 
@@ -57,6 +59,7 @@ Tip: The more data you send, the more comprehensive intelligence we can deliver,
 
 const bynn = Bynn({
   apiKey: 'your_PUBLIC_api_key',
+  kycLevel: 'your_kyc_level',
   parentId: 'verification-form',
   fields: [
     { name: 'first_name', visible: true },
@@ -80,6 +83,7 @@ You can pass all data hidden from the user like this
 
 const bynn = Bynn({
   apiKey: 'your_PUBLIC_api_key',
+  kycLevel: 'your_kyc_level',
   parentId: 'verification-form',
   fields: [
     { name: 'first_name', visible: false, value:'John'  },
@@ -126,6 +130,7 @@ Example with all options:
 ```javascript
 const bynn = Bynn({
   apiKey: 'your_PUBLIC_api_key',
+  kycLevel: 'your_kyc_level',
   parentId: 'verification-form',
   fields: [
     { 
@@ -256,6 +261,7 @@ Set the language for the verification interface:
 ```javascript
 const bynn = Bynn({
   apiKey: 'your_api_key',
+  kycLevel: 'your_kyc_level',
   parentId: 'verification-form',
   i18n: 'en-US' // Language code
 });
@@ -268,6 +274,7 @@ const bynn = Bynn({
 | Option | Type | Required | Description |
 |--------|------|----------|-------------|
 | `apiKey` | string | Yes | Your Bynn API key |
+| `kycLevel` | string | Yes | Your Bynn KYC level |
 | `parentId` | string | Yes | ID of container element |
 | `fields` | Field[] | No | Form field configuration |
 | `i18n` | string | No | Language code |
@@ -295,3 +302,49 @@ The SDK supports all modern browsers:
 - Chrome/Edge (latest)
 - Firefox (latest)
 - Safari (latest)
+
+## Development
+
+### Setting Up Development Environment
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Bynn-Intelligence/Bynn-Web-SDK.git
+   cd Bynn-Web-SDK
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+This will start a local development server with hot reloading and open `dev_example.html` in your browser.
+
+### Using the Development Example
+
+1. Open the `dev_example.html` file in your editor
+2. You can find your public API key and KYC level in the Bynn dashboard in the [integration](https://dashboard.bynn.com/integration) section in the tab "Bynn.js (easy integration)". 
+3. Update the following variables:
+   ```javascript
+   const apiKey = "your_PUBLIC_api_key"; // Replace with your actual API key
+   const kycLevel = "your_kyc_level"; // Replace with your actual KYC level
+   ```
+4. Open the file in your browser while running the development server
+5. You can make changes to the SDK code and see them reflected in real-time
+
+### Building the SDK
+
+To build the SDK for production:
+
+```bash
+npm run build
+```
+
+This will generate both the minified (`bynn.min.js`) and ESM (`bynn.esm.js`) versions in the `dist` folder.
