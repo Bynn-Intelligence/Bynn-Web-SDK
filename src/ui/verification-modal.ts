@@ -14,6 +14,7 @@ export function showVerificationModal(
   const content = modalElement.querySelector('.bynn-modal-content');
 
   const timeoutDuration = config.startTimeoutSeconds || DEFAULT_TIMEOUT;
+  let hasStarted = false;
   let startTimeoutId: number | null = window.setTimeout(() => {
     console.error(
       `Verification didn't start within ${timeoutDuration} seconds`
@@ -144,8 +145,9 @@ export function showVerificationModal(
                 window.clearTimeout(startTimeoutId);
                 startTimeoutId = null;
               }
-              if (config.onStart) {
+              if (!hasStarted && config.onStart) {
                 config.onStart(data.sessionId || sessionId);
+                hasStarted = true;
               }
               break;
           }
